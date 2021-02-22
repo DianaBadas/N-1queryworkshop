@@ -1,0 +1,1729 @@
+Started GET "/" for ::1 at 2021-02-22 07:30:36 +0000
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/diana.badas/.asdf/installs/ruby/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/diana.badas/.asdf/installs/ruby/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 42.7ms | Allocations: 563)
+Completed 200 OK in 94ms (Views: 75.3ms | ActiveRecord: 0.0ms | Allocations: 2509)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210222073725)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210222073725"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAddresses (20210222073802)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "city" varchar, "street" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210222073802"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20210222073831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "body" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210222073831"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-22 07:54:55.452646"], ["updated_at", "2021-02-22 07:54:55.452646"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Diana"], ["last_name", "Badas"], ["created_at", "2021-02-22 07:58:08.426847"], ["updated_at", "2021-02-22 07:58:08.426847"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAddress Create (0.6ms)[0m  [1m[32mINSERT INTO "addresses" ("city", "street", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["city", "London"], ["street", "Noodle St"], ["created_at", "2021-02-22 07:59:35.236446"], ["updated_at", "2021-02-22 07:59:35.236446"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "bla bla bla"], ["created_at", "2021-02-22 08:00:01.561738"], ["updated_at", "2021-02-22 08:00:01.561738"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["user_id", 1], ["updated_at", "2021-02-22 08:26:12.364462"], ["id", 1]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? ORDER BY "posts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? ORDER BY "posts"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Hugh"], ["last_name", "Denesik"], ["created_at", "2021-02-22 09:07:09.701458"], ["updated_at", "2021-02-22 09:07:09.701458"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Iris"], ["last_name", "Rolfson"], ["created_at", "2021-02-22 09:07:41.261375"], ["updated_at", "2021-02-22 09:07:41.261375"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Barbie"], ["last_name", "Feil"], ["created_at", "2021-02-22 09:07:41.267398"], ["updated_at", "2021-02-22 09:07:41.267398"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Dominique"], ["last_name", "Mraz"], ["created_at", "2021-02-22 09:07:41.272430"], ["updated_at", "2021-02-22 09:07:41.272430"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Cristobal"], ["last_name", "Kovacek"], ["created_at", "2021-02-22 09:07:41.279298"], ["updated_at", "2021-02-22 09:07:41.279298"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Eura"], ["last_name", "Mertz"], ["created_at", "2021-02-22 09:07:41.284499"], ["updated_at", "2021-02-22 09:07:41.284499"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Lewis"], ["last_name", "Gibson"], ["created_at", "2021-02-22 09:07:41.290567"], ["updated_at", "2021-02-22 09:07:41.290567"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Juliet"], ["last_name", "Hoeger"], ["created_at", "2021-02-22 09:07:41.296252"], ["updated_at", "2021-02-22 09:07:41.296252"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Vincenzo"], ["last_name", "Bauch"], ["created_at", "2021-02-22 09:07:41.302072"], ["updated_at", "2021-02-22 09:07:41.302072"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Lawana"], ["last_name", "Mann"], ["created_at", "2021-02-22 09:07:41.307830"], ["updated_at", "2021-02-22 09:07:41.307830"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Donnell"], ["last_name", "Smith"], ["created_at", "2021-02-22 09:07:41.312958"], ["updated_at", "2021-02-22 09:07:41.312958"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Cathleen"], ["last_name", "Mante"], ["created_at", "2021-02-22 09:07:41.318861"], ["updated_at", "2021-02-22 09:07:41.318861"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (7.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Octavio"], ["last_name", "Langosh"], ["created_at", "2021-02-22 09:07:41.323938"], ["updated_at", "2021-02-22 09:07:41.323938"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Vincent"], ["last_name", "Schinner"], ["created_at", "2021-02-22 09:07:41.337453"], ["updated_at", "2021-02-22 09:07:41.337453"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Gennie"], ["last_name", "Raynor"], ["created_at", "2021-02-22 09:07:41.343864"], ["updated_at", "2021-02-22 09:07:41.343864"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Newton"], ["last_name", "Dickens"], ["created_at", "2021-02-22 09:07:41.350360"], ["updated_at", "2021-02-22 09:07:41.350360"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Jacquiline"], ["last_name", "Kutch"], ["created_at", "2021-02-22 09:07:41.355658"], ["updated_at", "2021-02-22 09:07:41.355658"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Desirae"], ["last_name", "Tremblay"], ["created_at", "2021-02-22 09:07:41.361833"], ["updated_at", "2021-02-22 09:07:41.361833"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Toya"], ["last_name", "Emmerich"], ["created_at", "2021-02-22 09:07:41.368216"], ["updated_at", "2021-02-22 09:07:41.368216"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Nilda"], ["last_name", "Rutherford"], ["created_at", "2021-02-22 09:07:41.373246"], ["updated_at", "2021-02-22 09:07:41.373246"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 21], ["first_name", "Gerardo"], ["last_name", "Boyer"], ["created_at", "2021-02-22 09:07:41.380215"], ["updated_at", "2021-02-22 09:07:41.380215"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Bryanna"], ["last_name", "Morar"], ["created_at", "2021-02-22 09:10:32.913537"], ["updated_at", "2021-02-22 09:10:32.913537"]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Mabelle"], ["last_name", "Hills"], ["created_at", "2021-02-22 09:12:19.312492"], ["updated_at", "2021-02-22 09:12:19.312492"]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Patsy"], ["last_name", "Rippin"], ["created_at", "2021-02-22 09:13:20.983114"], ["updated_at", "2021-02-22 09:13:20.983114"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Destroy (6.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mAddress Destroy (1.9ms)[0m  [1m[31mDELETE FROM "addresses"[0m
+  [1m[36mPost Destroy (1.5ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Wilton"], ["last_name", "Kling"], ["created_at", "2021-02-22 09:17:46.213088"], ["updated_at", "2021-02-22 09:17:46.213088"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Jeramy"], ["last_name", "Littel"], ["created_at", "2021-02-22 09:17:46.218763"], ["updated_at", "2021-02-22 09:17:46.218763"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Brooks"], ["last_name", "Fahey"], ["created_at", "2021-02-22 09:17:46.224281"], ["updated_at", "2021-02-22 09:17:46.224281"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Drew"], ["last_name", "Mayert"], ["created_at", "2021-02-22 09:17:46.229948"], ["updated_at", "2021-02-22 09:17:46.229948"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Laurene"], ["last_name", "Hammes"], ["created_at", "2021-02-22 09:17:46.235155"], ["updated_at", "2021-02-22 09:17:46.235155"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Dong"], ["last_name", "Lind"], ["created_at", "2021-02-22 09:17:46.240376"], ["updated_at", "2021-02-22 09:17:46.240376"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Graham"], ["last_name", "Pacocha"], ["created_at", "2021-02-22 09:17:46.245294"], ["updated_at", "2021-02-22 09:17:46.245294"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Jennefer"], ["last_name", "Altenwerth"], ["created_at", "2021-02-22 09:17:46.250657"], ["updated_at", "2021-02-22 09:17:46.250657"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Brendon"], ["last_name", "Halvorson"], ["created_at", "2021-02-22 09:17:46.256072"], ["updated_at", "2021-02-22 09:17:46.256072"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Kristyn"], ["last_name", "Haley"], ["created_at", "2021-02-22 09:17:46.261329"], ["updated_at", "2021-02-22 09:17:46.261329"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Alphonse"], ["last_name", "Metz"], ["created_at", "2021-02-22 09:17:46.266217"], ["updated_at", "2021-02-22 09:17:46.266217"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Setsuko"], ["last_name", "Hagenes"], ["created_at", "2021-02-22 09:17:46.271691"], ["updated_at", "2021-02-22 09:17:46.271691"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Emely"], ["last_name", "Schowalter"], ["created_at", "2021-02-22 09:17:46.277022"], ["updated_at", "2021-02-22 09:17:46.277022"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Camelia"], ["last_name", "Schuppe"], ["created_at", "2021-02-22 09:17:46.282525"], ["updated_at", "2021-02-22 09:17:46.282525"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Lindsay"], ["last_name", "Anderson"], ["created_at", "2021-02-22 09:17:46.288622"], ["updated_at", "2021-02-22 09:17:46.288622"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Ralph"], ["last_name", "Padberg"], ["created_at", "2021-02-22 09:17:46.293936"], ["updated_at", "2021-02-22 09:17:46.293936"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Ramon"], ["last_name", "Mosciski"], ["created_at", "2021-02-22 09:17:46.298770"], ["updated_at", "2021-02-22 09:17:46.298770"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Shayne"], ["last_name", "Lockman"], ["created_at", "2021-02-22 09:17:46.304276"], ["updated_at", "2021-02-22 09:17:46.304276"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Filiberto"], ["last_name", "Hahn"], ["created_at", "2021-02-22 09:17:46.309270"], ["updated_at", "2021-02-22 09:17:46.309270"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Ezekiel"], ["last_name", "Lueilwitz"], ["created_at", "2021-02-22 09:17:46.320721"], ["updated_at", "2021-02-22 09:17:46.320721"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["body", "hi"], ["created_at", "2021-02-22 09:25:15.841456"], ["updated_at", "2021-02-22 09:25:15.841456"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Kermit"], ["last_name", "Hegmann"], ["created_at", "2021-02-22 09:29:26.109066"], ["updated_at", "2021-02-22 09:29:26.109066"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[36mPost Destroy (7.5ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mUser Destroy (7.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mAddress Destroy (1.4ms)[0m  [1m[31mDELETE FROM "addresses"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Rudolph"], ["last_name", "Crooks"], ["created_at", "2021-02-22 09:33:45.328745"], ["updated_at", "2021-02-22 09:33:45.328745"]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "India"], ["last_name", "Nitzsche"], ["created_at", "2021-02-22 09:33:45.340139"], ["updated_at", "2021-02-22 09:33:45.340139"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Randall"], ["last_name", "Leffler"], ["created_at", "2021-02-22 09:33:45.345327"], ["updated_at", "2021-02-22 09:33:45.345327"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Caprice"], ["last_name", "Nienow"], ["created_at", "2021-02-22 09:33:45.349675"], ["updated_at", "2021-02-22 09:33:45.349675"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Jesse"], ["last_name", "Kunde"], ["created_at", "2021-02-22 09:33:45.355234"], ["updated_at", "2021-02-22 09:33:45.355234"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Darin"], ["last_name", "Abshire"], ["created_at", "2021-02-22 09:33:45.360087"], ["updated_at", "2021-02-22 09:33:45.360087"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Alden"], ["last_name", "Vandervort"], ["created_at", "2021-02-22 09:33:45.364953"], ["updated_at", "2021-02-22 09:33:45.364953"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Troy"], ["last_name", "Bode"], ["created_at", "2021-02-22 09:33:45.372442"], ["updated_at", "2021-02-22 09:33:45.372442"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Mason"], ["last_name", "Boyle"], ["created_at", "2021-02-22 09:33:45.376884"], ["updated_at", "2021-02-22 09:33:45.376884"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Jodee"], ["last_name", "Weissnat"], ["created_at", "2021-02-22 09:33:45.382155"], ["updated_at", "2021-02-22 09:33:45.382155"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Laverne"], ["last_name", "Johnston"], ["created_at", "2021-02-22 09:33:45.387839"], ["updated_at", "2021-02-22 09:33:45.387839"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Vance"], ["last_name", "Bernhard"], ["created_at", "2021-02-22 09:33:45.393901"], ["updated_at", "2021-02-22 09:33:45.393901"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Elfrieda"], ["last_name", "Tremblay"], ["created_at", "2021-02-22 09:33:45.399789"], ["updated_at", "2021-02-22 09:33:45.399789"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Cassy"], ["last_name", "Cassin"], ["created_at", "2021-02-22 09:33:45.406671"], ["updated_at", "2021-02-22 09:33:45.406671"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Monte"], ["last_name", "Grant"], ["created_at", "2021-02-22 09:33:45.411898"], ["updated_at", "2021-02-22 09:33:45.411898"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Ashlee"], ["last_name", "Ritchie"], ["created_at", "2021-02-22 09:33:45.418446"], ["updated_at", "2021-02-22 09:33:45.418446"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Lida"], ["last_name", "Emmerich"], ["created_at", "2021-02-22 09:33:45.424046"], ["updated_at", "2021-02-22 09:33:45.424046"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Nona"], ["last_name", "Lang"], ["created_at", "2021-02-22 09:33:45.429810"], ["updated_at", "2021-02-22 09:33:45.429810"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Maryland"], ["last_name", "Schowalter"], ["created_at", "2021-02-22 09:33:45.435442"], ["updated_at", "2021-02-22 09:33:45.435442"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Erin"], ["last_name", "Yundt"], ["created_at", "2021-02-22 09:33:45.441550"], ["updated_at", "2021-02-22 09:33:45.441550"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Felipa"], ["last_name", "Schneider"], ["created_at", "2021-02-22 09:34:31.706628"], ["updated_at", "2021-02-22 09:34:31.706628"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Chanelle"], ["last_name", "Kris"], ["created_at", "2021-02-22 09:35:36.715541"], ["updated_at", "2021-02-22 09:35:36.715541"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Destroy (7.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Darron"], ["last_name", "Rau"], ["created_at", "2021-02-22 09:37:29.895506"], ["updated_at", "2021-02-22 09:37:29.895506"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Giovanni"], ["last_name", "Wuckert"], ["created_at", "2021-02-22 09:37:29.901339"], ["updated_at", "2021-02-22 09:37:29.901339"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Manda"], ["last_name", "Wuckert"], ["created_at", "2021-02-22 09:37:29.907680"], ["updated_at", "2021-02-22 09:37:29.907680"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Rudy"], ["last_name", "Lockman"], ["created_at", "2021-02-22 09:37:29.913317"], ["updated_at", "2021-02-22 09:37:29.913317"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Kraig"], ["last_name", "Dach"], ["created_at", "2021-02-22 09:37:29.918202"], ["updated_at", "2021-02-22 09:37:29.918202"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Al"], ["last_name", "Williamson"], ["created_at", "2021-02-22 09:37:29.924241"], ["updated_at", "2021-02-22 09:37:29.924241"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Lakeesha"], ["last_name", "Lang"], ["created_at", "2021-02-22 09:37:29.930334"], ["updated_at", "2021-02-22 09:37:29.930334"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Evia"], ["last_name", "Fadel"], ["created_at", "2021-02-22 09:37:29.938704"], ["updated_at", "2021-02-22 09:37:29.938704"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Bettyann"], ["last_name", "Leffler"], ["created_at", "2021-02-22 09:37:29.945520"], ["updated_at", "2021-02-22 09:37:29.945520"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Jeremiah"], ["last_name", "Rau"], ["created_at", "2021-02-22 09:37:29.954183"], ["updated_at", "2021-02-22 09:37:29.954183"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Jeramy"], ["last_name", "Wehner"], ["created_at", "2021-02-22 09:37:29.960098"], ["updated_at", "2021-02-22 09:37:29.960098"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Laurie"], ["last_name", "Wolff"], ["created_at", "2021-02-22 09:37:29.966063"], ["updated_at", "2021-02-22 09:37:29.966063"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Santos"], ["last_name", "Schinner"], ["created_at", "2021-02-22 09:37:29.972615"], ["updated_at", "2021-02-22 09:37:29.972615"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Maire"], ["last_name", "Kozey"], ["created_at", "2021-02-22 09:37:29.977317"], ["updated_at", "2021-02-22 09:37:29.977317"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Allyson"], ["last_name", "Lehner"], ["created_at", "2021-02-22 09:37:29.982278"], ["updated_at", "2021-02-22 09:37:29.982278"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Wilbert"], ["last_name", "Renner"], ["created_at", "2021-02-22 09:37:29.988230"], ["updated_at", "2021-02-22 09:37:29.988230"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Nannie"], ["last_name", "Boyle"], ["created_at", "2021-02-22 09:37:29.993498"], ["updated_at", "2021-02-22 09:37:29.993498"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Gerry"], ["last_name", "Skiles"], ["created_at", "2021-02-22 09:37:29.999941"], ["updated_at", "2021-02-22 09:37:29.999941"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Hettie"], ["last_name", "Sawayn"], ["created_at", "2021-02-22 09:37:30.006484"], ["updated_at", "2021-02-22 09:37:30.006484"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Ken"], ["last_name", "Beatty"], ["created_at", "2021-02-22 09:37:30.012172"], ["updated_at", "2021-02-22 09:37:30.012172"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Destroy (3.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Parker"], ["last_name", "Bradtke"], ["created_at", "2021-02-22 09:38:16.157740"], ["updated_at", "2021-02-22 09:38:16.157740"]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Eric"], ["last_name", "Abbott"], ["created_at", "2021-02-22 09:38:16.175821"], ["updated_at", "2021-02-22 09:38:16.175821"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Filiberto"], ["last_name", "Jacobson"], ["created_at", "2021-02-22 09:38:16.181545"], ["updated_at", "2021-02-22 09:38:16.181545"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Rashad"], ["last_name", "Deckow"], ["created_at", "2021-02-22 09:38:16.188800"], ["updated_at", "2021-02-22 09:38:16.188800"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Nicole"], ["last_name", "Blanda"], ["created_at", "2021-02-22 09:38:16.193589"], ["updated_at", "2021-02-22 09:38:16.193589"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Sid"], ["last_name", "Rolfson"], ["created_at", "2021-02-22 09:38:16.198809"], ["updated_at", "2021-02-22 09:38:16.198809"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Enola"], ["last_name", "Kerluke"], ["created_at", "2021-02-22 09:38:16.205195"], ["updated_at", "2021-02-22 09:38:16.205195"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Refugio"], ["last_name", "Sporer"], ["created_at", "2021-02-22 09:38:16.210653"], ["updated_at", "2021-02-22 09:38:16.210653"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Antione"], ["last_name", "Grimes"], ["created_at", "2021-02-22 09:38:16.215147"], ["updated_at", "2021-02-22 09:38:16.215147"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Galen"], ["last_name", "Upton"], ["created_at", "2021-02-22 09:38:16.221218"], ["updated_at", "2021-02-22 09:38:16.221218"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Alica"], ["last_name", "Bergstrom"], ["created_at", "2021-02-22 09:38:16.225688"], ["updated_at", "2021-02-22 09:38:16.225688"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Mickey"], ["last_name", "Torphy"], ["created_at", "2021-02-22 09:38:16.230081"], ["updated_at", "2021-02-22 09:38:16.230081"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Antionette"], ["last_name", "West"], ["created_at", "2021-02-22 09:38:16.234920"], ["updated_at", "2021-02-22 09:38:16.234920"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Darryl"], ["last_name", "Gottlieb"], ["created_at", "2021-02-22 09:38:16.239366"], ["updated_at", "2021-02-22 09:38:16.239366"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Quinn"], ["last_name", "Howe"], ["created_at", "2021-02-22 09:38:16.243769"], ["updated_at", "2021-02-22 09:38:16.243769"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Allyn"], ["last_name", "Schowalter"], ["created_at", "2021-02-22 09:38:16.248354"], ["updated_at", "2021-02-22 09:38:16.248354"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Sherril"], ["last_name", "Flatley"], ["created_at", "2021-02-22 09:38:16.254222"], ["updated_at", "2021-02-22 09:38:16.254222"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Raymonde"], ["last_name", "Kris"], ["created_at", "2021-02-22 09:38:16.258983"], ["updated_at", "2021-02-22 09:38:16.258983"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Fernando"], ["last_name", "Ondricka"], ["created_at", "2021-02-22 09:38:16.263579"], ["updated_at", "2021-02-22 09:38:16.263579"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Birgit"], ["last_name", "Schowalter"], ["created_at", "2021-02-22 09:38:16.277581"], ["updated_at", "2021-02-22 09:38:16.277581"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Destroy (1.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Theodore"], ["last_name", "Reichel"], ["created_at", "2021-02-22 09:44:57.494845"], ["updated_at", "2021-02-22 09:44:57.494845"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Joy"], ["last_name", "Bradtke"], ["created_at", "2021-02-22 09:44:57.500223"], ["updated_at", "2021-02-22 09:44:57.500223"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Nova"], ["last_name", "Grant"], ["created_at", "2021-02-22 09:44:57.504587"], ["updated_at", "2021-02-22 09:44:57.504587"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Graig"], ["last_name", "Fadel"], ["created_at", "2021-02-22 09:44:57.509448"], ["updated_at", "2021-02-22 09:44:57.509448"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Britt"], ["last_name", "Bailey"], ["created_at", "2021-02-22 09:44:57.514360"], ["updated_at", "2021-02-22 09:44:57.514360"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Davis"], ["last_name", "Leffler"], ["created_at", "2021-02-22 09:44:57.519007"], ["updated_at", "2021-02-22 09:44:57.519007"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Lyndon"], ["last_name", "Ernser"], ["created_at", "2021-02-22 09:44:57.523402"], ["updated_at", "2021-02-22 09:44:57.523402"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Cora"], ["last_name", "Welch"], ["created_at", "2021-02-22 09:44:57.527752"], ["updated_at", "2021-02-22 09:44:57.527752"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Don"], ["last_name", "Zulauf"], ["created_at", "2021-02-22 09:44:57.534346"], ["updated_at", "2021-02-22 09:44:57.534346"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Bruno"], ["last_name", "Rowe"], ["created_at", "2021-02-22 09:44:57.539027"], ["updated_at", "2021-02-22 09:44:57.539027"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Shenna"], ["last_name", "Heidenreich"], ["created_at", "2021-02-22 09:44:57.543491"], ["updated_at", "2021-02-22 09:44:57.543491"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Alva"], ["last_name", "Senger"], ["created_at", "2021-02-22 09:44:57.548244"], ["updated_at", "2021-02-22 09:44:57.548244"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Yong"], ["last_name", "Windler"], ["created_at", "2021-02-22 09:44:57.553257"], ["updated_at", "2021-02-22 09:44:57.553257"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Erica"], ["last_name", "Kulas"], ["created_at", "2021-02-22 09:44:57.558510"], ["updated_at", "2021-02-22 09:44:57.558510"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Marquis"], ["last_name", "Shields"], ["created_at", "2021-02-22 09:44:57.563078"], ["updated_at", "2021-02-22 09:44:57.563078"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Rory"], ["last_name", "Purdy"], ["created_at", "2021-02-22 09:44:57.567561"], ["updated_at", "2021-02-22 09:44:57.567561"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Shirley"], ["last_name", "Schmitt"], ["created_at", "2021-02-22 09:44:57.572978"], ["updated_at", "2021-02-22 09:44:57.572978"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Christeen"], ["last_name", "Dicki"], ["created_at", "2021-02-22 09:44:57.578187"], ["updated_at", "2021-02-22 09:44:57.578187"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Kathleen"], ["last_name", "Satterfield"], ["created_at", "2021-02-22 09:44:57.582733"], ["updated_at", "2021-02-22 09:44:57.582733"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Ervin"], ["last_name", "Ferry"], ["created_at", "2021-02-22 09:44:57.588120"], ["updated_at", "2021-02-22 09:44:57.588120"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["user_id", 17], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.612568"], ["updated_at", "2021-02-22 09:44:57.612568"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["user_id", 17], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.618126"], ["updated_at", "2021-02-22 09:44:57.618126"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.624189"], ["updated_at", "2021-02-22 09:44:57.624189"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["user_id", 8], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.630706"], ["updated_at", "2021-02-22 09:44:57.630706"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["user_id", 19], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.636700"], ["updated_at", "2021-02-22 09:44:57.636700"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["user_id", 18], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.642315"], ["updated_at", "2021-02-22 09:44:57.642315"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["user_id", 15], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.648417"], ["updated_at", "2021-02-22 09:44:57.648417"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["user_id", 2], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.653980"], ["updated_at", "2021-02-22 09:44:57.653980"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["user_id", 13], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.659910"], ["updated_at", "2021-02-22 09:44:57.659910"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["user_id", 3], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.665244"], ["updated_at", "2021-02-22 09:44:57.665244"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["user_id", 11], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.670238"], ["updated_at", "2021-02-22 09:44:57.670238"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.676973"], ["updated_at", "2021-02-22 09:44:57.676973"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["user_id", 17], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.683737"], ["updated_at", "2021-02-22 09:44:57.683737"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["user_id", 18], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.690459"], ["updated_at", "2021-02-22 09:44:57.690459"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.696305"], ["updated_at", "2021-02-22 09:44:57.696305"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["user_id", 11], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.702298"], ["updated_at", "2021-02-22 09:44:57.702298"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["user_id", 7], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.708046"], ["updated_at", "2021-02-22 09:44:57.708046"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["user_id", 9], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.714984"], ["updated_at", "2021-02-22 09:44:57.714984"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["user_id", 3], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.722509"], ["updated_at", "2021-02-22 09:44:57.722509"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 09:44:57.729528"], ["updated_at", "2021-02-22 09:44:57.729528"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Destroy (1.8ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mUser Destroy (6.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Burma"], ["last_name", "Gorczany"], ["created_at", "2021-02-22 09:59:35.662314"], ["updated_at", "2021-02-22 09:59:35.662314"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Dalene"], ["last_name", "Beahan"], ["created_at", "2021-02-22 09:59:35.667212"], ["updated_at", "2021-02-22 09:59:35.667212"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Terrance"], ["last_name", "Stroman"], ["created_at", "2021-02-22 09:59:35.672918"], ["updated_at", "2021-02-22 09:59:35.672918"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Jeraldine"], ["last_name", "Schmidt"], ["created_at", "2021-02-22 09:59:35.678018"], ["updated_at", "2021-02-22 09:59:35.678018"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Krystina"], ["last_name", "Rath"], ["created_at", "2021-02-22 09:59:35.683679"], ["updated_at", "2021-02-22 09:59:35.683679"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Debbi"], ["last_name", "Blick"], ["created_at", "2021-02-22 09:59:35.689838"], ["updated_at", "2021-02-22 09:59:35.689838"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Ted"], ["last_name", "Schiller"], ["created_at", "2021-02-22 09:59:35.694511"], ["updated_at", "2021-02-22 09:59:35.694511"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Racheal"], ["last_name", "Friesen"], ["created_at", "2021-02-22 09:59:35.699772"], ["updated_at", "2021-02-22 09:59:35.699772"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Tierra"], ["last_name", "Hayes"], ["created_at", "2021-02-22 09:59:35.705046"], ["updated_at", "2021-02-22 09:59:35.705046"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Timmy"], ["last_name", "Kulas"], ["created_at", "2021-02-22 09:59:35.709881"], ["updated_at", "2021-02-22 09:59:35.709881"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Irene"], ["last_name", "Cartwright"], ["created_at", "2021-02-22 09:59:35.714461"], ["updated_at", "2021-02-22 09:59:35.714461"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Ema"], ["last_name", "Huel"], ["created_at", "2021-02-22 09:59:35.721581"], ["updated_at", "2021-02-22 09:59:35.721581"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "Elliot"], ["last_name", "Kshlerin"], ["created_at", "2021-02-22 09:59:35.726736"], ["updated_at", "2021-02-22 09:59:35.726736"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Matilda"], ["last_name", "Spencer"], ["created_at", "2021-02-22 09:59:35.731462"], ["updated_at", "2021-02-22 09:59:35.731462"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Zenia"], ["last_name", "Mayert"], ["created_at", "2021-02-22 09:59:35.736660"], ["updated_at", "2021-02-22 09:59:35.736660"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Nicholas"], ["last_name", "Russel"], ["created_at", "2021-02-22 09:59:35.741591"], ["updated_at", "2021-02-22 09:59:35.741591"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Rudolph"], ["last_name", "Schamberger"], ["created_at", "2021-02-22 09:59:35.746669"], ["updated_at", "2021-02-22 09:59:35.746669"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Eufemia"], ["last_name", "Johnson"], ["created_at", "2021-02-22 09:59:35.751711"], ["updated_at", "2021-02-22 09:59:35.751711"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Cyril"], ["last_name", "Casper"], ["created_at", "2021-02-22 09:59:35.756766"], ["updated_at", "2021-02-22 09:59:35.756766"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Fairy"], ["last_name", "VonRueden"], ["created_at", "2021-02-22 09:59:35.767105"], ["updated_at", "2021-02-22 09:59:35.767105"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Destroy (1.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sam"], ["last_name", "Goodwin"], ["created_at", "2021-02-22 10:16:02.818015"], ["updated_at", "2021-02-22 10:16:02.818015"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Destroy (1.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Morgan"], ["last_name", "Schumm"], ["created_at", "2021-02-22 10:17:55.279320"], ["updated_at", "2021-02-22 10:17:55.279320"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 23], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Destroy (7.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Joette"], ["last_name", "Gleichner"], ["created_at", "2021-02-22 10:19:34.924796"], ["updated_at", "2021-02-22 10:19:34.924796"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 24], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Destroy (7.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Terrilyn"], ["last_name", "Hauck"], ["created_at", "2021-02-22 10:20:09.902237"], ["updated_at", "2021-02-22 10:20:09.902237"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 25], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.924146"], ["updated_at", "2021-02-22 10:20:09.924146"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lien"], ["last_name", "Schuppe"], ["created_at", "2021-02-22 10:20:09.929289"], ["updated_at", "2021-02-22 10:20:09.929289"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 26], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.935452"], ["updated_at", "2021-02-22 10:20:09.935452"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Jewel"], ["last_name", "Anderson"], ["created_at", "2021-02-22 10:20:09.941010"], ["updated_at", "2021-02-22 10:20:09.941010"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 27], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.947383"], ["updated_at", "2021-02-22 10:20:09.947383"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Tambra"], ["last_name", "Padberg"], ["created_at", "2021-02-22 10:20:09.952425"], ["updated_at", "2021-02-22 10:20:09.952425"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 28], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.958987"], ["updated_at", "2021-02-22 10:20:09.958987"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Winford"], ["last_name", "Hoppe"], ["created_at", "2021-02-22 10:20:09.972004"], ["updated_at", "2021-02-22 10:20:09.972004"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 29], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.978770"], ["updated_at", "2021-02-22 10:20:09.978770"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sonia"], ["last_name", "Braun"], ["created_at", "2021-02-22 10:20:09.984485"], ["updated_at", "2021-02-22 10:20:09.984485"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 30], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:09.990739"], ["updated_at", "2021-02-22 10:20:09.990739"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Winfred"], ["last_name", "Hand"], ["created_at", "2021-02-22 10:20:09.995804"], ["updated_at", "2021-02-22 10:20:09.995804"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 31], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.002604"], ["updated_at", "2021-02-22 10:20:10.002604"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sue"], ["last_name", "Armstrong"], ["created_at", "2021-02-22 10:20:10.007893"], ["updated_at", "2021-02-22 10:20:10.007893"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 32], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.015619"], ["updated_at", "2021-02-22 10:20:10.015619"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Deandre"], ["last_name", "Thompson"], ["created_at", "2021-02-22 10:20:10.022928"], ["updated_at", "2021-02-22 10:20:10.022928"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 33], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.030519"], ["updated_at", "2021-02-22 10:20:10.030519"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Nyla"], ["last_name", "Krajcik"], ["created_at", "2021-02-22 10:20:10.035648"], ["updated_at", "2021-02-22 10:20:10.035648"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 34], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.042653"], ["updated_at", "2021-02-22 10:20:10.042653"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Cristopher"], ["last_name", "Larson"], ["created_at", "2021-02-22 10:20:10.047716"], ["updated_at", "2021-02-22 10:20:10.047716"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 35], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.055180"], ["updated_at", "2021-02-22 10:20:10.055180"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ramiro"], ["last_name", "Rolfson"], ["created_at", "2021-02-22 10:20:10.060873"], ["updated_at", "2021-02-22 10:20:10.060873"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 36], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.069183"], ["updated_at", "2021-02-22 10:20:10.069183"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Colene"], ["last_name", "Brekke"], ["created_at", "2021-02-22 10:20:10.074136"], ["updated_at", "2021-02-22 10:20:10.074136"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 37], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.079856"], ["updated_at", "2021-02-22 10:20:10.079856"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Sandee"], ["last_name", "Barton"], ["created_at", "2021-02-22 10:20:10.084940"], ["updated_at", "2021-02-22 10:20:10.084940"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 38], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.091506"], ["updated_at", "2021-02-22 10:20:10.091506"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Jolanda"], ["last_name", "Haley"], ["created_at", "2021-02-22 10:20:10.097008"], ["updated_at", "2021-02-22 10:20:10.097008"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 39], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.105141"], ["updated_at", "2021-02-22 10:20:10.105141"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Jazmine"], ["last_name", "Ortiz"], ["created_at", "2021-02-22 10:20:10.110354"], ["updated_at", "2021-02-22 10:20:10.110354"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 40], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.116991"], ["updated_at", "2021-02-22 10:20:10.116991"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lillie"], ["last_name", "Schumm"], ["created_at", "2021-02-22 10:20:10.122448"], ["updated_at", "2021-02-22 10:20:10.122448"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 41], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.129206"], ["updated_at", "2021-02-22 10:20:10.129206"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Debra"], ["last_name", "Grant"], ["created_at", "2021-02-22 10:20:10.134517"], ["updated_at", "2021-02-22 10:20:10.134517"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 42], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.140867"], ["updated_at", "2021-02-22 10:20:10.140867"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Frederick"], ["last_name", "Schultz"], ["created_at", "2021-02-22 10:20:10.146579"], ["updated_at", "2021-02-22 10:20:10.146579"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 43], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.153378"], ["updated_at", "2021-02-22 10:20:10.153378"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ema"], ["last_name", "Fisher"], ["created_at", "2021-02-22 10:20:10.159000"], ["updated_at", "2021-02-22 10:20:10.159000"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 44], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:20:10.165987"], ["updated_at", "2021-02-22 10:20:10.165987"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserRefToAddresses (20210222103248)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaddresses" ("id" integer NOT NULL PRIMARY KEY, "city" varchar DEFAULT NULL, "street" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aaddresses" ("id","city","street","created_at","updated_at")
+                     SELECT "id","city","street","created_at","updated_at" FROM "addresses"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" integer NOT NULL PRIMARY KEY, "city" varchar DEFAULT NULL, "street" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "addresses" ("id","city","street","created_at","updated_at")
+                     SELECT "id","city","street","created_at","updated_at" FROM "aaddresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aaddresses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaddresses" ("id" integer NOT NULL PRIMARY KEY, "city" varchar DEFAULT NULL, "street" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaddresses_on_user_id" ON "aaddresses" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aaddresses" ("id","city","street","created_at","updated_at","user_id")
+                     SELECT "id","city","street","created_at","updated_at","user_id" FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" integer NOT NULL PRIMARY KEY, "city" varchar DEFAULT NULL, "street" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "addresses" ("id","city","street","created_at","updated_at","user_id")
+                     SELECT "id","city","street","created_at","updated_at","user_id" FROM "aaddresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aaddresses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210222103248"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Destroy (7.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mPost Destroy (1.7ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mAddress Destroy (0.1ms)[0m  [1m[31mDELETE FROM "addresses"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (6.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["first_name", "Coy"], ["last_name", "Ziemann"], ["created_at", "2021-02-22 10:34:44.958911"], ["updated_at", "2021-02-22 10:34:44.958911"]]
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Mathew"], ["last_name", "Kshlerin"], ["created_at", "2021-02-22 10:34:45.020666"], ["updated_at", "2021-02-22 10:34:45.020666"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["first_name", "Sang"], ["last_name", "Reynolds"], ["created_at", "2021-02-22 10:34:45.032195"], ["updated_at", "2021-02-22 10:34:45.032195"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Althea"], ["last_name", "Howe"], ["created_at", "2021-02-22 10:34:45.042443"], ["updated_at", "2021-02-22 10:34:45.042443"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["first_name", "Barabara"], ["last_name", "Connelly"], ["created_at", "2021-02-22 10:34:45.049235"], ["updated_at", "2021-02-22 10:34:45.049235"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["first_name", "Jesusita"], ["last_name", "Vandervort"], ["created_at", "2021-02-22 10:34:45.063473"], ["updated_at", "2021-02-22 10:34:45.063473"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["first_name", "Vincenzo"], ["last_name", "Davis"], ["created_at", "2021-02-22 10:34:45.079710"], ["updated_at", "2021-02-22 10:34:45.079710"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["first_name", "Bradly"], ["last_name", "Braun"], ["created_at", "2021-02-22 10:34:45.089335"], ["updated_at", "2021-02-22 10:34:45.089335"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["first_name", "Amy"], ["last_name", "Anderson"], ["created_at", "2021-02-22 10:34:45.096608"], ["updated_at", "2021-02-22 10:34:45.096608"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["first_name", "Chantal"], ["last_name", "Hickle"], ["created_at", "2021-02-22 10:34:45.102925"], ["updated_at", "2021-02-22 10:34:45.102925"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["first_name", "Gale"], ["last_name", "Lind"], ["created_at", "2021-02-22 10:34:45.109751"], ["updated_at", "2021-02-22 10:34:45.109751"]]
+  [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["first_name", "Lacey"], ["last_name", "Doyle"], ["created_at", "2021-02-22 10:34:45.128924"], ["updated_at", "2021-02-22 10:34:45.128924"]]
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["first_name", "George"], ["last_name", "Torp"], ["created_at", "2021-02-22 10:34:45.153510"], ["updated_at", "2021-02-22 10:34:45.153510"]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["first_name", "Loan"], ["last_name", "Cremin"], ["created_at", "2021-02-22 10:34:45.169661"], ["updated_at", "2021-02-22 10:34:45.169661"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["first_name", "Ambrose"], ["last_name", "Davis"], ["created_at", "2021-02-22 10:34:45.178130"], ["updated_at", "2021-02-22 10:34:45.178130"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["first_name", "Duncan"], ["last_name", "Willms"], ["created_at", "2021-02-22 10:34:45.185176"], ["updated_at", "2021-02-22 10:34:45.185176"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["first_name", "Shameka"], ["last_name", "Dickens"], ["created_at", "2021-02-22 10:34:45.192705"], ["updated_at", "2021-02-22 10:34:45.192705"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (30.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["first_name", "Odell"], ["last_name", "Abernathy"], ["created_at", "2021-02-22 10:34:45.301938"], ["updated_at", "2021-02-22 10:34:45.301938"]]
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["first_name", "Josette"], ["last_name", "Schneider"], ["created_at", "2021-02-22 10:34:45.354201"], ["updated_at", "2021-02-22 10:34:45.354201"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["first_name", "Daren"], ["last_name", "Kihn"], ["created_at", "2021-02-22 10:34:45.396194"], ["updated_at", "2021-02-22 10:34:45.396194"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["city", "New Daliahaven"], ["street", "Koelpin Common"], ["created_at", "2021-02-22 10:34:45.441061"], ["updated_at", "2021-02-22 10:34:45.441061"], ["user_id", 15]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["city", "North Rickshire"], ["street", "Purdy Stravenue"], ["created_at", "2021-02-22 10:34:45.453824"], ["updated_at", "2021-02-22 10:34:45.453824"], ["user_id", 18]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.6ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["city", "Hilariobury"], ["street", "Tomi Turnpike"], ["created_at", "2021-02-22 10:34:45.469781"], ["updated_at", "2021-02-22 10:34:45.469781"], ["user_id", 17]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["city", "Lake Yonton"], ["street", "Schinner Stravenue"], ["created_at", "2021-02-22 10:34:45.483677"], ["updated_at", "2021-02-22 10:34:45.483677"], ["user_id", 16]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["city", "Spencerview"], ["street", "Olson Spring"], ["created_at", "2021-02-22 10:34:45.496592"], ["updated_at", "2021-02-22 10:34:45.496592"], ["user_id", 17]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["city", "Schusterside"], ["street", "Walker Union"], ["created_at", "2021-02-22 10:34:45.507286"], ["updated_at", "2021-02-22 10:34:45.507286"], ["user_id", 6]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAddress Create (1.3ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["city", "Lake Mirella"], ["street", "Marcus Loaf"], ["created_at", "2021-02-22 10:34:45.520394"], ["updated_at", "2021-02-22 10:34:45.520394"], ["user_id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.6ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["city", "Port Lashawnamouth"], ["street", "Heathcote Prairie"], ["created_at", "2021-02-22 10:34:45.534373"], ["updated_at", "2021-02-22 10:34:45.534373"], ["user_id", 8]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["city", "Lake Vonnieton"], ["street", "Stan Forest"], ["created_at", "2021-02-22 10:34:45.545662"], ["updated_at", "2021-02-22 10:34:45.545662"], ["user_id", 7]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["city", "Lake Shelbyside"], ["street", "Simonis Falls"], ["created_at", "2021-02-22 10:34:45.558865"], ["updated_at", "2021-02-22 10:34:45.558865"], ["user_id", 13]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["city", "North Rosendo"], ["street", "Kristel Causeway"], ["created_at", "2021-02-22 10:34:45.669969"], ["updated_at", "2021-02-22 10:34:45.669969"], ["user_id", 10]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.5ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 12], ["city", "Erwinport"], ["street", "Collier Lake"], ["created_at", "2021-02-22 10:34:45.682883"], ["updated_at", "2021-02-22 10:34:45.682883"], ["user_id", 15]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.6ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 13], ["city", "New Dorine"], ["street", "Yukiko Forge"], ["created_at", "2021-02-22 10:34:45.695854"], ["updated_at", "2021-02-22 10:34:45.695854"], ["user_id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mAddress Create (2.9ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 14], ["city", "North Nicolas"], ["street", "Gerlach Spring"], ["created_at", "2021-02-22 10:34:45.705290"], ["updated_at", "2021-02-22 10:34:45.705290"], ["user_id", 16]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 15], ["city", "Wiegandfort"], ["street", "Schmidt Hollow"], ["created_at", "2021-02-22 10:34:45.737547"], ["updated_at", "2021-02-22 10:34:45.737547"], ["user_id", 20]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 16], ["city", "Lake Phillipburgh"], ["street", "Hodkiewicz Creek"], ["created_at", "2021-02-22 10:34:45.754206"], ["updated_at", "2021-02-22 10:34:45.754206"], ["user_id", 3]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.6ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 17], ["city", "New Morton"], ["street", "Guillermo Avenue"], ["created_at", "2021-02-22 10:34:45.768022"], ["updated_at", "2021-02-22 10:34:45.768022"], ["user_id", 18]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.4ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 18], ["city", "Port Buckfurt"], ["street", "Hand Lane"], ["created_at", "2021-02-22 10:34:45.779512"], ["updated_at", "2021-02-22 10:34:45.779512"], ["user_id", 12]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAddress Create (0.4ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 19], ["city", "Beermouth"], ["street", "Deckow Burg"], ["created_at", "2021-02-22 10:34:45.790982"], ["updated_at", "2021-02-22 10:34:45.790982"], ["user_id", 9]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAddress Create (1.1ms)[0m  [1m[32mINSERT INTO "addresses" ("id", "city", "street", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 20], ["city", "New Charityton"], ["street", "Nathanial Walk"], ["created_at", "2021-02-22 10:34:45.803082"], ["updated_at", "2021-02-22 10:34:45.803082"], ["user_id", 2]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["user_id", 5], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.829243"], ["updated_at", "2021-02-22 10:34:45.829243"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["user_id", 3], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.841423"], ["updated_at", "2021-02-22 10:34:45.841423"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["user_id", 18], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.852618"], ["updated_at", "2021-02-22 10:34:45.852618"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["user_id", 11], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.862286"], ["updated_at", "2021-02-22 10:34:45.862286"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["user_id", 13], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.877266"], ["updated_at", "2021-02-22 10:34:45.877266"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.884682"], ["updated_at", "2021-02-22 10:34:45.884682"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["user_id", 14], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.902075"], ["updated_at", "2021-02-22 10:34:45.902075"]]
+  [1m[35m (25.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["user_id", 7], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.944833"], ["updated_at", "2021-02-22 10:34:45.944833"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["user_id", 4], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.956382"], ["updated_at", "2021-02-22 10:34:45.956382"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.968550"], ["updated_at", "2021-02-22 10:34:45.968550"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["user_id", 5], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.982742"], ["updated_at", "2021-02-22 10:34:45.982742"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["user_id", 10], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:45.996602"], ["updated_at", "2021-02-22 10:34:45.996602"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["user_id", 20], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.009376"], ["updated_at", "2021-02-22 10:34:46.009376"]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["user_id", 5], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.028703"], ["updated_at", "2021-02-22 10:34:46.028703"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["user_id", 20], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.038702"], ["updated_at", "2021-02-22 10:34:46.038702"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 16], ["user_id", 1], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.053506"], ["updated_at", "2021-02-22 10:34:46.053506"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPost Create (3.3ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 17], ["user_id", 4], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.074525"], ["updated_at", "2021-02-22 10:34:46.074525"]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 18], ["user_id", 20], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.096534"], ["updated_at", "2021-02-22 10:34:46.096534"]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 19], ["user_id", 3], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.111314"], ["updated_at", "2021-02-22 10:34:46.111314"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "user_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 20], ["user_id", 20], ["body", "Faker::Quotes::Chiquito"], ["created_at", "2021-02-22 10:34:46.125536"], ["updated_at", "2021-02-22 10:34:46.125536"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "addresses"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+Started GET "/" for ::1 at 2021-02-22 10:56:28 +0000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 59.5ms | Allocations: 14982)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 2.7ms | Allocations: 17563)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 10:57:03 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1011)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 4193ms (ActiveRecord: 0.2ms | Allocations: 18949)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 10:58:30 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 4183)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3770ms (ActiveRecord: 2.1ms | Allocations: 14012)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 10:59:53 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4183)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3694ms (ActiveRecord: 1.0ms | Allocations: 14012)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:01:08 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 4183)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3322ms (ActiveRecord: 1.3ms | Allocations: 14008)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:03:11 +0000
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 4183)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3662ms (ActiveRecord: 0.9ms | Allocations: 14012)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:04:19 +0000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 188)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3567ms (ActiveRecord: 0.0ms | Allocations: 10017)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/index" for ::1 at 2021-02-22 11:04:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (6.0.3.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2021-02-22 11:04:41 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3270ms (ActiveRecord: 0.0ms | Allocations: 5278)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:04:50 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3168ms (ActiveRecord: 0.0ms | Allocations: 5230)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:08:42 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 79.8ms | Allocations: 14635)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 3.0ms | Allocations: 17216)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 11:09:06 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1011)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3934ms (ActiveRecord: 0.2ms | Allocations: 9071)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:09:56 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4183)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.1
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error package.json: Name contains illegal characters
+error package.json: Name contains illegal characters
+
+Completed 500 Internal Server Error in 3412ms (ActiveRecord: 1.2ms | Allocations: 14012)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/diana.badas/Desktop/n+1queryworkshop/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2021-02-22 11:12:45 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4183)
+Completed 200 OK in 42ms (Views: 28.6ms | ActiveRecord: 1.2ms | Allocations: 10158)
+
+
+Started GET "/" for ::1 at 2021-02-22 11:13:12 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 45.4ms | Allocations: 13284)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 2.4ms | Allocations: 14455)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 11:13:39 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3824)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 5018)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <%# <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b> %>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 11:13:49 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3778)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 4935)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <%# <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b> %>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 11:14:03 +0000
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 14637)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.0ms | Allocations: 17322)
+
+
+  
+ActionView::Template::Error (undefined method `city' for nil:NilClass):
+    3: <ul>
+    4:   <% @posts.each do |post| %>
+    5:     <li>
+    6:       <%# <b><%= post.user.first_name %> from <%= post.user.address.city %>:</b> %>
+    7:       <%= post.body %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/posts/index.html.erb:6
+app/views/posts/index.html.erb:4
+Started GET "/" for ::1 at 2021-02-22 11:14:47 +0000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1010)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.2ms | Allocations: 5582)
+
+
