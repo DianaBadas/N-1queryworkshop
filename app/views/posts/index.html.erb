@@ -3,6 +3,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
+      <b><%= post.user.first_name %> from <%= post&.user&.address&.city %>:</b>
       <%= post.body %>
     </li>
   <% end %>
