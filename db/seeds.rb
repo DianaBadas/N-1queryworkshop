@@ -30,6 +30,6 @@ end
   Post.create!(
     id: id,
     user_id: rand(1..20),
-    body: Faker::Quotes::Chiquito
+    body: Faker::Quotes::Chiquito.joke
   )
 end
